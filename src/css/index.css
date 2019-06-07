@@ -1,0 +1,11 @@
+body{
+    background-color: dimgray;
+    color: #fff;
+    padding-bottom: 300px;
+}
+h1,h2{
+    text-align: center
+}
+div{
+    cursor: default
+}
