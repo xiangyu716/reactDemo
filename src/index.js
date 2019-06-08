@@ -1,14 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '@/css/index.css'
+import '@/css/public.css'
 import ImgGame from '@/components/ImgGame.jsx'
 import TodoList from '@/components/TodoList.jsx'
-import BookSerchar from '@/components/BookSerchar.jsx'
+import BookSearch from '@/components/BookSearch.jsx'
+import BookDetail from '@/components/BookDetail.jsx'
 ReactDOM.render(
     <div className={''}>
     <h1>React 练习</h1>
     <TodoList />
     <ImgGame />
-    <BookSerchar />
+    <BookSearch />
     </div>
     ,  document.getElementById('app'));

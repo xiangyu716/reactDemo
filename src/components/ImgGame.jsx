@@ -1,4 +1,5 @@
 import React from'react'
+import style from '@/css/public.css'
 import styles from '@/css/imgGame.module.css'
 import image1 from '@/img/game_01.jpg'
 import image2 from '@/img/game_02.jpg'
@@ -18,6 +19,30 @@ export default class Hello extends React.Component{
             img:[null,image3,image8,image2,image9,image1,image6,image4,image7,image5]
         }
     }
+    render(){
+        return<div className={styles.mainDiv}>
+            <h2 onMouseMove={this.handleMouseMove.bind(this)}
+                onMouseLeave={this.handleMouseLeave.bind(this)}>
+                拼图游戏
+            </h2>
+            <p className={style.introduction} 
+               style={{display:(this.state.control)?"block":"none",textAlign:"center"}}>
+                点击任一张图片，与空白图片交换位置；<br></br>
+                拼图完成弹出提示框；<br/>
+                点击再来一把会打乱图片顺序；
+            </p>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,1)} src= {this.state.img[1]} alt='' height='100px'></img>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,2)} src= {this.state.img[2]} alt='' height='100px'></img>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,3)} src= {this.state.img[3]} alt='' height='100px'></img>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,4)} src= {this.state.img[4]} alt='' height='100px'></img>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,5)} src= {this.state.img[5]} alt='' height='100px'></img>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,6)} src= {this.state.img[6]} alt='' height='100px'></img>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,7)} src= {this.state.img[7]} alt='' height='100px'></img>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,8)} src= {this.state.img[8]} alt='' height='100px'></img>
+            <img className={styles.imgStyle} onClick={this.change.bind(this,9)} src= {this.state.img[9]} alt='' height='100px'></img>
+            <button className={styles.btn} onClick={this.rander.bind(this)}>再来一把</button>
+        </div>
+    }    
     change(i){
         const a = this.state.img;
         const b = [...this.state.img];
@@ -60,32 +85,9 @@ export default class Hello extends React.Component{
           control:1
         })
       }
-      handleMouseLeave(){
-        this.setState({
-          control:0
-        })
-      }
-    render(){
-        return<div className={styles.mainDiv}>
-            <h2 onMouseMove={this.handleMouseMove.bind(this)}
-                onMouseLeave={this.handleMouseLeave.bind(this)}>
-                拼图游戏
-            </h2>
-            <p style={{display:(this.state.control)?"block":"none",textAlign:"center"}}>
-                点击任一张图片，与空白图片交换位置；<br></br>
-                拼图完成弹出提示框；<br/>
-                点击再来一把会打乱图片顺序；
-            </p>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,1)} src= {this.state.img[1]} alt='' height='100px'></img>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,2)} src= {this.state.img[2]} alt='' height='100px'></img>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,3)} src= {this.state.img[3]} alt='' height='100px'></img>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,4)} src= {this.state.img[4]} alt='' height='100px'></img>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,5)} src= {this.state.img[5]} alt='' height='100px'></img>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,6)} src= {this.state.img[6]} alt='' height='100px'></img>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,7)} src= {this.state.img[7]} alt='' height='100px'></img>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,8)} src= {this.state.img[8]} alt='' height='100px'></img>
-            <img className={styles.imgStyle} onClick={this.change.bind(this,9)} src= {this.state.img[9]} alt='' height='100px'></img>
-            <button className={styles.btn} onClick={this.rander.bind(this)}>再来一把</button>
-        </div>
-    }    
+    handleMouseLeave(){
+    this.setState({
+        control:0
+    })
+    }
 }

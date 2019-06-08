@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import style from '@/css/public.css'
 import styles from '@/css/todoList.module.css'
 export default class TodoList extends Component{
   constructor(props){
@@ -21,20 +22,20 @@ export default class TodoList extends Component{
           onMouseLeave={this.handleMouseLeave}>
         TodoList
       </h2>
-      <p style={{display:(this.state.control)?'block':'none'}}>
+      <p className={style.introduction} style={{display:(this.state.control)?'block':'none'}}>
         输入文字点击提交，即时显示在下方List中；<br/>
         点击List中任意一条，删除该条；
       </p>
-      <div className={styles.scanner}>
+      <div className={style.scanner}>
         <input 
-          className={styles.inputStyle} 
+          className={style.inputStyle} 
           value={this.state.inputValue} 
           onChange={this.handleInputChange}>
         </input>
-        <button className={styles.btnStyle} 
+        <button className={style.btnStyle} 
                 onClick={this.handleBtnClick}>提交</button>
       </div>
-      <ul className={styles.ulStyle}>
+      <ul className={style.ulStyle}>
         { this.listMap() }       
       </ul>        
       </div>
@@ -44,7 +45,7 @@ export default class TodoList extends Component{
     return(
     this.state.list.map(
       (item,index)=>
-      <li className={styles.liStyle} 
+      <li className={style.liStyle} 
           key={index} 
           onClick={this.handleListDelete.bind(this,index)}>
         {item}
